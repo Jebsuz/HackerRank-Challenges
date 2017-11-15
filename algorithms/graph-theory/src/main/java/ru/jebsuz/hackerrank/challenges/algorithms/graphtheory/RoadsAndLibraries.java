@@ -19,7 +19,7 @@ public class RoadsAndLibraries {
   static {
     try {
       System.setIn(new FileInputStream(
-          RoadsAndLibraries.class.getClassLoader().getResource("RoadsAndLibraries_in.txt")
+          RoadsAndLibraries.class.getClassLoader().getResource("RoadsAndLibraries/input/input00.txt")
               .getFile()));
     } catch (FileNotFoundException e) {
       log.error(e.getMessage(), e);
