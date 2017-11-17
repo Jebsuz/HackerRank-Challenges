@@ -12,7 +12,7 @@ public class BFSShortestReachInAGraph {
 
   static {
     System.setIn(BFSShortestReachInAGraph.class.getClassLoader()
-        .getResourceAsStream("BFSShortestReachInAGraph/input/input00.txt"));
+        .getResourceAsStream("Algorithms/BFSShortestReachInAGraph/input/input00.txt"));
   }
 
   public static void main(String[] args) {

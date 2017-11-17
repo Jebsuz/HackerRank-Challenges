@@ -10,7 +10,7 @@ public class DFSConnectedCellInAGrid {
 
   static {
     System.setIn(DFSConnectedCellInAGrid.class.getClassLoader()
-        .getResourceAsStream("DFSConnectedCellInAGrid/input/input00.txt"));
+        .getResourceAsStream("Algorithms/DFSConnectedCellInAGrid/input/input00.txt"));
   }
 
   public static void main(String[] args) {
