@@ -10,7 +10,7 @@ public class ArraysLeftRotation {
 
   static {
     System.setIn(ArraysLeftRotation.class.getClassLoader()
-        .getResourceAsStream("DataStructures/ArraysLeftRotation/input/input00.txt"));
+        .getResourceAsStream("DataStructures/ArraysLeftRotation/input/input08.txt"));
   }
 
   public static void main(String[] args) {
@@ -22,9 +22,7 @@ public class ArraysLeftRotation {
       array[i] = in.nextInt();
     }
 
-    for (int i = 0; i < numberOfShifts; i++) {
-      array = shift(array);
-    }
+    array = shift(array, numberOfShifts);
 
     for (int i = 0; i < array.length; i++) {
       if (i == array.length - 1) {
@@ -35,10 +33,11 @@ public class ArraysLeftRotation {
     }
   }
 
-  private static int[] shift(int[] array) {
+  private static int[] shift(int[] array, int numberOfShifts) {
     int[] newArray = new int[array.length];
-    System.arraycopy(array, 1,newArray,0, array.length - 1);
-    newArray[array.length - 1] = array[0];
+    System.arraycopy(array, numberOfShifts, newArray, 0, array.length - numberOfShifts);
+    System.arraycopy(array, 0, newArray, newArray.length - numberOfShifts, numberOfShifts);
+
     return newArray;
   }
 }
