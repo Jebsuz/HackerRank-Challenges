@@ -31,6 +31,6 @@ public class SimpleArraySum {
   }
 
   static int simpleArraySum(int[] ar) {
-    return 0;
+    return Arrays.stream(ar).sum();
   }
 }
