@@ -1,4 +1,4 @@
-package ru.jebsuz.hackerrank.challenges.algorithms.graphtheory;
+package ru.jebsuz.hrc.algorithms.graphtheory;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

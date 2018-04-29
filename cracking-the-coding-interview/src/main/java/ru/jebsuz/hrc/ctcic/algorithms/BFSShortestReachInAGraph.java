@@ -1,4 +1,4 @@
-package ru.jebsuz.hackerrank.challenges.crackingthecodinginterview.algorithms;
+package ru.jebsuz.hrc.ctcic.algorithms;
 
 import java.util.ArrayList;
 import java.util.HashSet;

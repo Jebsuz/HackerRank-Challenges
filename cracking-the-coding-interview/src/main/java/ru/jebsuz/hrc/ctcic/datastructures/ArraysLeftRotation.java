@@ -1,4 +1,4 @@
-package ru.jebsuz.hackerrank.challenges.crackingthecodinginterview.datastructures;
+package ru.jebsuz.hrc.ctcic.datastructures;
 
 /*
 * https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem

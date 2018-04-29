@@ -1,4 +1,4 @@
-package ru.jebsuz.hackerrank.challenges.algorithms.graphtheory;
+package ru.jebsuz.hrc.algorithms.graphtheory;
 
 /*
 * https://www.hackerrank.com/challenges/journey-to-the-moon/problem
@@ -6,9 +6,7 @@ package ru.jebsuz.hackerrank.challenges.algorithms.graphtheory;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 import lombok.extern.slf4j.Slf4j;
