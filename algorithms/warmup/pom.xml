@@ -3,19 +3,14 @@
   xmlns="http://maven.apache.org/POM/4.0.0"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <parent>
-    <artifactId>hackerrank-challenges</artifactId>
+    <artifactId>algorithms</artifactId>
     <groupId>ru.jebsuz.hackerrank</groupId>
     <version>1.0</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>algorithms</artifactId>
+  <artifactId>warmup</artifactId>
   <version>1.0</version>
-  <packaging>pom</packaging>
-
-  <modules>
-    <module>graph-theory</module>
-    <module>warmup</module>
-  </modules>
+  <packaging>jar</packaging>
 
 </project>
