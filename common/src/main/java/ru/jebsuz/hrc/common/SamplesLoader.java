@@ -1,14 +1,14 @@
 package ru.jebsuz.hrc.common;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Stream;
 import lombok.extern.slf4j.Slf4j;
 
@@ -18,10 +18,9 @@ public class SamplesLoader {
   private static final String PATH_DELIMITER = "/";
   private static final String INPUT = "input";
   private static final String OUTPUT = "output";
-  private static final String TXT = ".txt";
 
-  public static Collection<Object[]> load(String folderName) {
-    final File rootFolder = getRootFolder(folderName);
+  public static Collection<Object[]> load(Class clazz) {
+    final File rootFolder = getRootFolder(clazz.getSimpleName());
     validateRootFolderStructure(rootFolder);
     File inputSamples = getFolder(rootFolder, INPUT);
     if (!inputSamples.canRead()) {
@@ -34,26 +33,23 @@ public class SamplesLoader {
     if (missmatchNumberOfSamples(inputSamples, outputSamples)) {
       throw new RuntimeException("Input samples count doesn't match output count");
     }
+    final File[] inputs = inputSamples.listFiles();
+    final File[] outputs = outputSamples.listFiles();
+    Arrays.sort(inputs);
+    Arrays.sort(outputs);
     List<Object[]> samples = new ArrayList<>();
-    for (int i = 0; i < inputSamples.list().length; i++) {
-      InputStream inputSample = getSampleInputStreamWithNumber(inputSamples, i);
-      File outputSample = getSampleFileWithNumber(outputSamples, i, OUTPUT);
-      samples.add(new Object[]{inputSample, outputSample});
+    for (int i = 0; i < inputs.length; i++) {
+      Scanner input = getScannerFor(inputs[i]);
+      Scanner output = getScannerFor(outputs[i]);
+      samples.add(new Object[]{input, output});
     }
 
     return samples;
   }
 
-  private static File getSampleFileWithNumber(File samplesFolder, int numberOfSample,
-      String fileName) {
-    return new File(samplesFolder.getAbsolutePath() + PATH_DELIMITER + fileName + String
-        .format("%02d", numberOfSample) + TXT);
-  }
-
-  private static InputStream getSampleInputStreamWithNumber(File samplesFolder,
-      int numberOfSample) {
+  private static Scanner getScannerFor(File input) {
     try {
-      return new FileInputStream(getSampleFileWithNumber(samplesFolder, numberOfSample, INPUT));
+      return new Scanner(input);
     } catch (FileNotFoundException e) {
       log.error(e.getMessage(), e);
       throw new RuntimeException(e);
