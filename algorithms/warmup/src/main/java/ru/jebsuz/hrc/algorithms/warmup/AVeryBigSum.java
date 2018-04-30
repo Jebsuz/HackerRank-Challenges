@@ -1,14 +1,13 @@
 package ru.jebsuz.hrc.algorithms.warmup;
 
+import java.util.stream.LongStream;
+
 /**
  * https://www.hackerrank.com/challenges/a-very-big-sum/problem
  */
 public class AVeryBigSum {
 
   static long aVeryBigSum(int n, long[] ar) {
-    /*
-     * Write your code here.
-     */
-    return 0L;
+    return LongStream.of(ar).sum();
   }
 }
