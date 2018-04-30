@@ -9,9 +9,9 @@ public abstract class BaseTest {
   protected Scanner input;
   protected Scanner output;
 
-  public BaseTest(InputStream input, File output) throws Exception {
-    this.input = new Scanner(input);
-    this.output = new Scanner(output);
+  public BaseTest(Scanner input, Scanner output) {
+    this.input = input;
+    this.output = output;
   }
 }
 

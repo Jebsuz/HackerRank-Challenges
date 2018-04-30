@@ -2,9 +2,8 @@ package ru.jebsuz.hrc.ds.arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.File;
-import java.io.InputStream;
 import java.util.Collection;
+import java.util.Scanner;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,17 +17,17 @@ public class ArraysDSTest extends BaseTest {
   private int[] expected;
   private int[] inputSample;
 
-  public ArraysDSTest(InputStream input, File output) throws Exception {
+  public ArraysDSTest(Scanner input, Scanner output) {
     super(input, output);
   }
 
   @Parameters
   public static Collection<Object[]> parameters() {
-    return SamplesLoader.load(ArraysDS.class.getSimpleName());
+    return SamplesLoader.load(ArraysDS.class);
   }
 
   @Before
-  public void setUp() throws Exception {
+  public void setUp() {
     int arrCount = Integer.parseInt(input.nextLine().trim());
 
     inputSample = new int[arrCount];
