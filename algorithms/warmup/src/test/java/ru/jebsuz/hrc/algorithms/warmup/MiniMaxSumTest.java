@@ -4,9 +4,7 @@ import static junit.framework.TestCase.fail;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Collection;
 import java.util.Scanner;
@@ -23,31 +21,29 @@ public class MiniMaxSumTest extends BaseTest {
   private int[] inputIntegers;
   private int[] expected;
 
-  public MiniMaxSumTest(InputStream input, File output) {
+  public MiniMaxSumTest(Scanner input, Scanner output) {
     super(input, output);
   }
 
   @Parameters
   public static Collection<Object[]> parameters() {
-    return SamplesLoader.load(getSamplesFolderName(MiniMaxSum.class));
+    return SamplesLoader.load(MiniMaxSum.class);
   }
 
   @Before
-  public void setUp() throws Exception {
+  public void setUp() {
     inputIntegers = new int[5];
 
-    Scanner inputSample = new Scanner(input);
-    String[] arrItems = inputSample.nextLine().split(" ");
+    String[] arrItems = input.nextLine().split(" ");
 
     for (int arrItr = 0; arrItr < 5; arrItr++) {
       int arrItem = Integer.parseInt(arrItems[arrItr].trim());
       inputIntegers[arrItr] = arrItem;
     }
 
-    Scanner outputSample = new Scanner(output);
     expected = new int[2];
     for (int i = 0; i < expected.length; i++) {
-      expected[i] = outputSample.nextInt();
+      expected[i] = output.nextInt();
     }
   }
 

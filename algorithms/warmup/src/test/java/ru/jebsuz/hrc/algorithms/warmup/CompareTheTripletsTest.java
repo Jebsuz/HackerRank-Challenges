@@ -2,8 +2,6 @@ package ru.jebsuz.hrc.algorithms.warmup;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.File;
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.Scanner;
 import org.junit.Before;
@@ -14,7 +12,7 @@ import org.junit.runners.Parameterized.Parameters;
 import ru.jebsuz.hrc.common.SamplesLoader;
 
 @RunWith(Parameterized.class)
-public class CompareTheTripletsTest {
+public class CompareTheTripletsTest extends BaseTest {
 
   public static final String SPACE_SYMBOL = " ";
   private int a0;
@@ -23,23 +21,19 @@ public class CompareTheTripletsTest {
   private int b0;
   private int b1;
   private int b2;
-  private InputStream inputSample;
-  private File outputSample;
   private int[] expected;
 
-  public CompareTheTripletsTest(InputStream inputSample, File outputSample) {
-    this.inputSample = inputSample;
-    this.outputSample = outputSample;
+  public CompareTheTripletsTest(Scanner input, Scanner output) {
+    super(input, output);
   }
 
   @Parameters
   public static Collection<Object[]> parameters() {
-    return SamplesLoader.load("CompareTheTriplets");
+    return SamplesLoader.load(CompareTheTriplets.class);
   }
 
   @Before
   public void setUp() throws Exception {
-    Scanner input = new Scanner(inputSample);
     String[] a0A1A2 = input.nextLine().split(SPACE_SYMBOL);
 
     a0 = Integer.parseInt(a0A1A2[0].trim());
@@ -53,7 +47,6 @@ public class CompareTheTripletsTest {
     b2 = Integer.parseInt(b0B1B2[2].trim());
 
     expected = new int[2];
-    Scanner output = new Scanner(outputSample);
     String outputString = output.nextLine();
     String[] splitedOutput = outputString.split(SPACE_SYMBOL);
     for (int i = 0; i < splitedOutput.length; i++) {

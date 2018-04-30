@@ -2,8 +2,6 @@ package ru.jebsuz.hrc.algorithms.warmup;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.File;
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.Scanner;
 import org.junit.Before;
@@ -19,22 +17,20 @@ public class TimeConversionTest extends BaseTest {
   private String inputTime;
   private String expected;
 
-  public TimeConversionTest(InputStream input, File output) {
+  public TimeConversionTest(Scanner input, Scanner output) {
     super(input, output);
   }
 
   @Parameters
   public static Collection<Object[]> parameters() {
-    return SamplesLoader.load(getSamplesFolderName(TimeConversion.class));
+    return SamplesLoader.load(TimeConversion.class);
   }
 
   @Before
-  public void setUp() throws Exception {
-    Scanner inputSample = new Scanner(input);
-    inputTime = inputSample.nextLine();
+  public void setUp() {
+    inputTime = input.nextLine();
 
-    Scanner outputSample = new Scanner(output);
-    expected = outputSample.nextLine();
+    expected = output.nextLine();
   }
 
   @Test

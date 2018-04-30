@@ -2,8 +2,6 @@ package ru.jebsuz.hrc.algorithms.warmup;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.File;
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.Scanner;
 import org.junit.Before;
@@ -20,31 +18,29 @@ public class BirthdayCakeCandlesTest extends BaseTest {
   private int numberOfCandles;
   private int expected;
 
-  public BirthdayCakeCandlesTest(InputStream input, File output) {
+  public BirthdayCakeCandlesTest(Scanner input, Scanner output) {
     super(input, output);
   }
 
   @Parameters
   public static Collection<Object[]> parameters() {
-    return SamplesLoader.load(getSamplesFolderName(BirthdayCakeCandles.class));
+    return SamplesLoader.load(BirthdayCakeCandles.class);
   }
 
   @Before
-  public void setUp() throws Exception {
-    Scanner inputSample = new Scanner(input);
-    numberOfCandles = Integer.parseInt(inputSample.nextLine().trim());
+  public void setUp() {
+    numberOfCandles = Integer.parseInt(input.nextLine().trim());
 
     candlesHeight = new int[numberOfCandles];
 
-    String[] arItems = inputSample.nextLine().split(" ");
+    String[] arItems = input.nextLine().split(" ");
 
     for (int arItr = 0; arItr < numberOfCandles; arItr++) {
       int arItem = Integer.parseInt(arItems[arItr].trim());
       candlesHeight[arItr] = arItem;
     }
 
-    Scanner outputSample = new Scanner(output);
-    expected = outputSample.nextInt();
+    expected = output.nextInt();
   }
 
   @Test

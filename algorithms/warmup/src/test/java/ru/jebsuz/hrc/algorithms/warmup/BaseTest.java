@@ -1,19 +1,14 @@
 package ru.jebsuz.hrc.algorithms.warmup;
 
-import java.io.File;
-import java.io.InputStream;
+import java.util.Scanner;
 
 public abstract class BaseTest {
 
-  protected InputStream input;
-  protected File output;
+  protected Scanner input;
+  protected Scanner output;
 
-  public BaseTest(InputStream input, File output) {
+  public BaseTest(Scanner input, Scanner output) {
     this.input = input;
     this.output = output;
-  }
-
-  static String getSamplesFolderName(Class clazz) {
-    return clazz.getSimpleName();
   }
 }

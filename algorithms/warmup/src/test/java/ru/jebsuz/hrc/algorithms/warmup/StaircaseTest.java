@@ -4,9 +4,7 @@ import static junit.framework.TestCase.fail;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Collection;
 import java.util.Scanner;
@@ -23,24 +21,22 @@ public class StaircaseTest extends BaseTest {
   private int numberOfStairs;
   private String[] expected;
 
-  public StaircaseTest(InputStream input, File output) {
+  public StaircaseTest(Scanner input, Scanner output) {
     super(input, output);
   }
 
   @Parameters
   public static Collection<Object[]> parameters() {
-    return SamplesLoader.load(getSamplesFolderName(Staircase.class));
+    return SamplesLoader.load(Staircase.class);
   }
 
   @Before
-  public void setUp() throws Exception {
-    Scanner inputSample = new Scanner(input);
-    numberOfStairs = Integer.parseInt(inputSample.nextLine().trim());
+  public void setUp() {
+    numberOfStairs = Integer.parseInt(input.nextLine().trim());
 
-    Scanner outputSample = new Scanner(output);
     expected = new String[numberOfStairs];
     for (int i = 0; i < numberOfStairs; i++) {
-      expected[i] = outputSample.nextLine();
+      expected[i] = output.nextLine();
     }
   }
 

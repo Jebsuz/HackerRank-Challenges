@@ -2,8 +2,6 @@ package ru.jebsuz.hrc.algorithms.warmup;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.File;
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.Scanner;
 import org.junit.Before;
@@ -20,32 +18,29 @@ public class AVeryBigSumTest extends BaseTest {
   private long[] inputLongs;
   private int times;
 
-  public AVeryBigSumTest(InputStream input, File output) {
+  public AVeryBigSumTest(Scanner input, Scanner output) {
     super(input, output);
   }
 
   @Parameters
   public static Collection<Object[]> parameters() {
-    return SamplesLoader.load(getSamplesFolderName(AVeryBigSum.class));
+    return SamplesLoader.load(AVeryBigSum.class);
   }
 
   @Before
-  public void setUp() throws Exception {
-
-    Scanner inputSample = new Scanner(input);
-    times = Integer.parseInt(inputSample.nextLine().trim());
+  public void setUp() {
+    times = Integer.parseInt(input.nextLine().trim());
 
     inputLongs = new long[times];
 
-    String[] arItems = inputSample.nextLine().split(" ");
+    String[] arItems = input.nextLine().split(" ");
 
     for (int arItr = 0; arItr < times; arItr++) {
       long arItem = Long.parseLong(arItems[arItr].trim());
       inputLongs[arItr] = arItem;
     }
 
-    Scanner outputSample = new Scanner(output);
-    expected = outputSample.nextLong();
+    expected = output.nextLong();
   }
 
   @Test

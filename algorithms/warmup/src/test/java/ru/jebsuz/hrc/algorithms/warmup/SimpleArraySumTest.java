@@ -2,8 +2,6 @@ package ru.jebsuz.hrc.algorithms.warmup;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.io.File;
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.Scanner;
 import org.junit.Before;
@@ -14,26 +12,22 @@ import org.junit.runners.Parameterized.Parameters;
 import ru.jebsuz.hrc.common.SamplesLoader;
 
 @RunWith(Parameterized.class)
-public class SimpleArraySumTest {
+public class SimpleArraySumTest extends BaseTest {
 
-  private InputStream inputSample;
-  private File outputSample;
   private int expected;
   private int[] inputIntegers;
 
-  public SimpleArraySumTest(InputStream inputSample, File outputSample) {
-    this.inputSample = inputSample;
-    this.outputSample = outputSample;
+  public SimpleArraySumTest(Scanner input, Scanner output) {
+    super(input, output);
   }
 
   @Parameters
   public static Collection<Object[]> parameters() {
-    return SamplesLoader.load("SimpleArraySum");
+    return SamplesLoader.load(SimpleArraySum.class);
   }
 
   @Before
   public void setUp() throws Exception {
-    Scanner input = new Scanner(inputSample);
     int arCount = Integer.parseInt(input.nextLine().trim());
 
     inputIntegers = new int[arCount];
@@ -45,7 +39,6 @@ public class SimpleArraySumTest {
       inputIntegers[arItr] = arItem;
     }
 
-    Scanner output = new Scanner(outputSample);
     expected = output.nextInt();
   }
 

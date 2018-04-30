@@ -1,10 +1,7 @@
 package ru.jebsuz.hrc.algorithms.warmup;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static ru.jebsuz.hrc.algorithms.warmup.DiagonalDifference.diagonalDifference;
 
-import java.io.File;
-import java.io.InputStream;
 import java.util.Collection;
 import java.util.Scanner;
 import org.junit.Before;
@@ -20,24 +17,23 @@ public class DiagonalDifferenceTest extends BaseTest {
   private int expected;
   private int[][] inputMatrix;
 
-  public DiagonalDifferenceTest(InputStream input, File output) {
+  public DiagonalDifferenceTest(Scanner input, Scanner output) {
     super(input, output);
   }
 
   @Parameters
   public static Collection<Object[]> parameters() {
-    return SamplesLoader.load(getSamplesFolderName(DiagonalDifference.class));
+    return SamplesLoader.load(DiagonalDifference.class);
   }
 
   @Before
-  public void setUp() throws Exception {
-    Scanner inputSample = new Scanner(input);
-    int matrixSize = Integer.parseInt(inputSample.nextLine().trim());
+  public void setUp() {
+    int matrixSize = Integer.parseInt(input.nextLine().trim());
 
     inputMatrix = new int[matrixSize][matrixSize];
 
     for (int aRowItr = 0; aRowItr < matrixSize; aRowItr++) {
-      String[] aRowItems = inputSample.nextLine().split(" ");
+      String[] aRowItems = input.nextLine().split(" ");
 
       for (int aColumnItr = 0; aColumnItr < matrixSize; aColumnItr++) {
         int aItem = Integer.parseInt(aRowItems[aColumnItr].trim());
@@ -45,8 +41,7 @@ public class DiagonalDifferenceTest extends BaseTest {
       }
     }
 
-    Scanner outputSample = new Scanner(output);
-    expected = outputSample.nextInt();
+    expected = output.nextInt();
   }
 
   @Test

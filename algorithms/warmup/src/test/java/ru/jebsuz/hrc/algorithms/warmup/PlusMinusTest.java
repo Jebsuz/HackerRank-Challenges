@@ -4,9 +4,7 @@ import static junit.framework.TestCase.fail;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Collection;
 import java.util.Scanner;
@@ -23,30 +21,28 @@ public class PlusMinusTest extends BaseTest {
   private int[] inputIntegers;
   private Double[] expected;
 
-  public PlusMinusTest(InputStream input, File output) {
+  public PlusMinusTest(Scanner input, Scanner output) {
     super(input, output);
   }
 
   @Parameters
   public static Collection<Object[]> parameters() {
-    return SamplesLoader.load(getSamplesFolderName(PlusMinus.class));
+    return SamplesLoader.load(PlusMinus.class);
   }
 
   @Before
-  public void setUp() throws Exception {
-    Scanner inputSample = new Scanner(input);
-    int n = Integer.parseInt(inputSample.nextLine().trim());
+  public void setUp() {
+    int n = Integer.parseInt(input.nextLine().trim());
 
     inputIntegers = new int[n];
 
-    String[] arrItems = inputSample.nextLine().split(" ");
+    String[] arrItems = input.nextLine().split(" ");
 
     for (int arrItr = 0; arrItr < n; arrItr++) {
       int arrItem = Integer.parseInt(arrItems[arrItr].trim());
       inputIntegers[arrItr] = arrItem;
     }
-    Scanner outputSample = new Scanner(output);
-    expected = getThreeDoublesFrom(outputSample);
+    expected = getThreeDoublesFrom(output);
   }
 
   private Double[] getThreeDoublesFrom(Scanner scanner) {
