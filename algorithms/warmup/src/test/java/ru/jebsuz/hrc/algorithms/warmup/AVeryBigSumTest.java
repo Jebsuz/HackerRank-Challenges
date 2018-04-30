@@ -21,7 +21,7 @@ public class AVeryBigSumTest extends BaseTest {
   private int times;
 
   public AVeryBigSumTest(InputStream input, File output) {
-    super(output, input);
+    super(input, output);
   }
 
   @Parameters

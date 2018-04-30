@@ -8,9 +8,9 @@ public abstract class BaseTest {
   protected InputStream input;
   protected File output;
 
-  public BaseTest(File output, InputStream input) {
-    this.output = output;
+  public BaseTest(InputStream input, File output) {
     this.input = input;
+    this.output = output;
   }
 
   static String getSamplesFolderName(Class clazz) {
