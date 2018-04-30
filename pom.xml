@@ -12,6 +12,7 @@
   <modules>
     <module>algorithms</module>
     <module>cracking-the-coding-interview</module>
+    <module>common</module>
   </modules>
 
   <properties>
