@@ -16,7 +16,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import ru.jebsuz.hrc.common.SamplesLoader;
-import ru.jebsuz.hrc.ctcic.datastructures.TriesContacts.Operation;
 
 @RunWith(Parameterized.class)
 public class TriesContactsTest extends BaseTest {
@@ -73,6 +72,17 @@ public class TriesContactsTest extends BaseTest {
       assertThat(actual).containsExactlyElementsOf(expected);
     } catch (IOException e) {
       fail();
+    }
+  }
+
+  static class Operation {
+
+    String operation;
+    String contact;
+
+    Operation(String operation, String contact) {
+      this.operation = operation;
+      this.contact = contact;
     }
   }
 }
