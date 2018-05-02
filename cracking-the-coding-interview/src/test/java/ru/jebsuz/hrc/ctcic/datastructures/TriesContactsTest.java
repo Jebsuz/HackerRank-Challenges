@@ -67,11 +67,10 @@ public class TriesContactsTest extends BaseTest {
         if ("find".equals(operation.operation)) {
           TriesContacts.find(operation.contact);
         }
-
-        List<String> actual = readOutputToList(new Scanner(byteArrayOutputStream.toString()));
-
-        assertThat(actual).containsExactlyElementsOf(expected);
       }
+      List<String> actual = readOutputToList(new Scanner(byteArrayOutputStream.toString()));
+
+      assertThat(actual).containsExactlyElementsOf(expected);
     } catch (IOException e) {
       fail();
     }
