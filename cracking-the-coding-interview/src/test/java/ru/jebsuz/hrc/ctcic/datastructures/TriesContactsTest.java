@@ -16,6 +16,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import ru.jebsuz.hrc.common.SamplesLoader;
+import ru.jebsuz.hrc.ctcic.datastructures.TriesContacts.ArrayNode;
 
 @RunWith(Parameterized.class)
 public class TriesContactsTest extends BaseTest {
@@ -55,15 +56,15 @@ public class TriesContactsTest extends BaseTest {
   }
 
   @Test
-  public void solution() {
+  public void TriesAsMapSolution() {
     try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream()) {
       System.setOut(new PrintStream(byteArrayOutputStream));
       for (int i = 0; i < operations.size(); i++) {
         Operation operation = operations.get(i);
-        if ("add".equals(operation.operation)) {
+        if ("addContact".equals(operation.operation)) {
           TriesContacts.add(operation.contact);
         }
-        if ("find".equals(operation.operation)) {
+        if ("getNumberOfContactsWhichStartsWith".equals(operation.operation)) {
           TriesContacts.find(operation.contact);
         }
       }
@@ -73,6 +74,24 @@ public class TriesContactsTest extends BaseTest {
     } catch (IOException e) {
       fail();
     }
+  }
+
+  @Test
+  public void TriesAsArraySolution() {
+    ArrayNode contactBook = new ArrayNode();
+    List<String> actual = new ArrayList<>();
+    for (int i = 0; i < operations.size(); i++) {
+      Operation operation = operations.get(i);
+      if ("addContact".equals(operation.operation)) {
+        contactBook.addContact(operation.contact);
+      }
+      if ("getNumberOfContactsWhichStartsWith".equals(operation.operation)) {
+        long count = contactBook.getNumberOfContactsWhichStartsWith(operation.contact);
+        actual.add(String.valueOf(count));
+      }
+    }
+
+    assertThat(actual).containsExactlyElementsOf(expected);
   }
 
   static class Operation {
