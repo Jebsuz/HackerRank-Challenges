@@ -1,7 +1,5 @@
 package ru.jebsuz.hrc.ds.arrays;
 
-import java.io.File;
-import java.io.InputStream;
 import java.util.Scanner;
 
 public abstract class BaseTest {
@@ -14,4 +12,3 @@ public abstract class BaseTest {
     this.output = output;
   }
 }
-
