@@ -15,6 +15,12 @@ public class LeftRotation {
     return result;
   }
 
+  static void printRotated(int[] array, int times) {
+    for (int i = times % array.length, j = 0; j < array.length; i = ++i % array.length, j++) {
+      System.out.print(array[i] + " ");
+    }
+  }
+
   static void printResult(int[] result) {
     Arrays.stream(result).boxed().forEachOrdered(integer -> System.out.print(integer + " "));
   }
