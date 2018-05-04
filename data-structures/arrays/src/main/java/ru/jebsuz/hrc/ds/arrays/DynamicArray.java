@@ -1,6 +1,8 @@
 package ru.jebsuz.hrc.ds.arrays;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -9,7 +11,9 @@ import java.util.List;
 public class DynamicArray {
 
   static int[] dynamicArray(int n, int[][] queries) {
-    List<Integer> result = new ArrayList<>(9999999);
+//    List<Integer> result = new ArrayList<>(9999999);
+    int[] result = new int[50_000];
+    int nextResultIndex = 0;
     int lastAnswer = 0;
     SeqList[] sequences = new SeqList[n];
     for (int i = 0; i < n; i++) {
@@ -30,10 +34,10 @@ public class DynamicArray {
       if (queryType == 2) {
         SeqList sequence = sequences[sequenceIndex];
         lastAnswer = sequence.get(y % sequence.size());
-        result.add(lastAnswer);
+        result[nextResultIndex++] = lastAnswer;
       }
     }
-    return result.stream().mapToInt(Integer::valueOf).toArray();
+    return Arrays.copyOfRange(result, 0, nextResultIndex);
   }
 
   private static int getIndex(int first, int second, int size) {
@@ -49,7 +53,7 @@ public class DynamicArray {
 
     public SeqList(int size) {
 //      store = new int[size];
-      store = new ArrayList<>(size);
+      store = new LinkedList<>();
       next = 0;
     }
 
