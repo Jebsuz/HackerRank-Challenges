@@ -1,6 +1,5 @@
 package ru.jebsuz.hrc.ds.arrays;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -19,10 +18,10 @@ public class DynamicArray {
     for (int i = 0; i < n; i++) {
       sequences[i] = new SeqList(n);
     }
-    for (int i = 0; i < queries.length; i++) {
-      int queryType = queries[i][0];
-      int x = queries[i][1];
-      int y = queries[i][2];
+    for (int[] query : queries) {
+      int queryType = query[0];
+      int x = query[1];
+      int y = query[2];
       int sequenceIndex = getIndex(x, lastAnswer, n);
       if (queryType == 1) {
 //        try {
