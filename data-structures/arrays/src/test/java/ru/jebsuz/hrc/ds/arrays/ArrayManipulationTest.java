@@ -16,7 +16,7 @@ public class ArrayManipulationTest extends BaseTest {
 
   private int[][] queries;
   private int listSize;
-  private int expected;
+  private long expected;
 
   public ArrayManipulationTest(Scanner input, Scanner output) {
     super(input, output);
@@ -46,12 +46,12 @@ public class ArrayManipulationTest extends BaseTest {
       }
     }
 
-    expected = output.nextInt();
+    expected = output.nextLong();
   }
 
   @Test
   public void arrayManipulation() {
-    int actual = ArrayManipulation.arrayManipulation(listSize, queries);
+    long actual = ArrayManipulation.arrayManipulation(listSize, queries);
 
     assertThat(actual).isEqualTo(expected);
   }
