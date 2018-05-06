@@ -10,9 +10,7 @@
   <version>1.0</version>
 
   <modules>
-    <module>algorithms</module>
     <module>cracking-the-coding-interview</module>
-    <module>common</module>
     <module>data-structures</module>
   </modules>
 
@@ -34,12 +32,6 @@
       <version>1.2.3</version>
     </dependency>
 
-    <dependency>
-      <groupId>ru.jebsuz.hackerrank</groupId>
-      <artifactId>common</artifactId>
-      <version>1.0</version>
-      <scope>test</scope>
-    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
