@@ -19,6 +19,7 @@ import ru.jebsuz.hrc.common.BaseTest;
 import ru.jebsuz.hrc.common.SamplesLoader;
 import ru.jebsuz.hrc.ctcic.datastructures.TriesContacts.ArrayNode;
 
+//TODO [MS] 06.05.18 need to migrate back to File for SampleLoader to fix this test
 @RunWith(Parameterized.class)
 public class TriesContactsTest extends BaseTest {
 

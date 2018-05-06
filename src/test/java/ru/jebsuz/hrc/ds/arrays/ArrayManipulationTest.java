@@ -13,7 +13,7 @@ import org.junit.runners.Parameterized.Parameters;
 import ru.jebsuz.hrc.common.BaseTest;
 import ru.jebsuz.hrc.common.SamplesLoader;
 
-@Ignore
+@Ignore("Takes too much time, need to work on solution")
 @RunWith(Parameterized.class)
 public class ArrayManipulationTest extends BaseTest {
 
