@@ -9,7 +9,7 @@ public class PrintElementsOfLinkedList {
 
   }
 
-  class Node {
+  static class Node {
 
     int data;
     Node next;
