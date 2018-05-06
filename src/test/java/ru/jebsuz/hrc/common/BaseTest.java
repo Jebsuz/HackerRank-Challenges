@@ -1,4 +1,4 @@
-package ru.jebsuz.hrc.ds.arrays;
+package ru.jebsuz.hrc.common;
 
 import java.util.Scanner;
 

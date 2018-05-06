@@ -15,8 +15,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+import ru.jebsuz.hrc.common.BaseTest;
 import ru.jebsuz.hrc.common.SamplesLoader;
-import ru.jebsuz.hrc.ds.arrays.BaseTest;
 import ru.jebsuz.hrc.ds.linkedlists.PrintElementsOfLinkedList.Node;
 
 @RunWith(Parameterized.class)
