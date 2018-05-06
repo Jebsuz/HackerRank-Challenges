@@ -61,10 +61,10 @@ public class TriesContactsTest extends BaseTest {
       System.setOut(new PrintStream(byteArrayOutputStream));
       for (int i = 0; i < operations.size(); i++) {
         Operation operation = operations.get(i);
-        if ("addContact".equals(operation.operation)) {
+        if ("add".equals(operation.operation)) {
           TriesContacts.add(operation.contact);
         }
-        if ("getNumberOfContactsWhichStartsWith".equals(operation.operation)) {
+        if ("find".equals(operation.operation)) {
           TriesContacts.find(operation.contact);
         }
       }
@@ -82,10 +82,10 @@ public class TriesContactsTest extends BaseTest {
     List<String> actual = new ArrayList<>();
     for (int i = 0; i < operations.size(); i++) {
       Operation operation = operations.get(i);
-      if ("addContact".equals(operation.operation)) {
+      if ("add".equals(operation.operation)) {
         contactBook.addContact(operation.contact);
       }
-      if ("getNumberOfContactsWhichStartsWith".equals(operation.operation)) {
+      if ("find".equals(operation.operation)) {
         long count = contactBook.getNumberOfContactsWhichStartsWith(operation.contact);
         actual.add(String.valueOf(count));
       }

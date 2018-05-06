@@ -6,13 +6,8 @@
 
   <groupId>ru.jebsuz.hackerrank</groupId>
   <artifactId>hackerrank-challenges</artifactId>
-  <packaging>pom</packaging>
+  <packaging>jar</packaging>
   <version>1.0</version>
-
-  <modules>
-    <module>cracking-the-coding-interview</module>
-    <module>data-structures</module>
-  </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

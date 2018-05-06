@@ -5,12 +5,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.Collection;
 import java.util.Scanner;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 import ru.jebsuz.hrc.common.SamplesLoader;
 
+@Ignore
 @RunWith(Parameterized.class)
 public class ArrayManipulationTest extends BaseTest {
 
